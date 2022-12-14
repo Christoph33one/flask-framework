@@ -4,7 +4,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
+# This is template rendering. This inherits code from the base template
 @app.route("/")
 def index():
     return render_template("index.html")
