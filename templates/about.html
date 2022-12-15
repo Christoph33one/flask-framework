@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>About Page</h2>
+
+<!--{{ company[0] ["name"] }}-->
+<!-- [0] to retrieve the first element from the array.-->
+<!--["name"] to retieve the first key and it's value from the array.-->
+
+<!--Look at rendering in the json file. read below!-->
+<!--FOR THE JSON FILE: This is how to load content from a json file and into a html file. Look at the run.py file for how this file */
+/*is rendered  in python, and then look at the about.html file and the expression used at the top for the page to retrieve data.-->
+
+
+<h2>{{ page_title }}</h2> <!--Passing the varible (page_title) as an exspression with the data (about)from the base.html file-->
 <p>The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in
     recapturing his long lost family inheritance. (Thorin's grandfather had been the King under the Mountain when Smaug
     came and took it.) Remembering that he had once known an adventurous Hobbit on his travels in the Shire, Gandalf
@@ -9,36 +19,45 @@
     superstitious Dwarves also considered thirteen to be an unlucky number, and as Gandalf had planned to leave on other
     business, welcomed a fourteenth to fill into their party.</p>
 
-<div class="row featurette">
-    <div class="col-md-9">
-        <h3>Thorine Oakensheild</h3>
-        <p>
-            Thorin II was born in TA 2746 to Dwarf prince Thráin II in the city of the Lonely Mountain. Early in his
-            youth, he and the other Dwarves of the Lonely Mountain were forced to flee by the dragon Smaug in TA 2770.
-            While in exile, he quickly grew to become a capable warrior. This was demonstrated when he participated in
-            the Battle of Azanulbizar in TA 2799. He fought with one of the Dwarven armies beneath the East-gate of
-            Moria. At some point in the fighting, his shield broke, and using an oaken tree branch found on the ground
-            as a shield, he gained the epithet "Oakenshield," which would remain with him even in death.
-        </p>
-    </div>
-    <div class="col-md-3">
-        <img src="https://static.wikia.nocookie.net/lotr/images/2/29/Thorin_Oakenshield.jpg"
-            alt="A picture of Thorine with a sword">
-    </div>
-</div>
-</div>
+    {% for member in company %}
 
-<div class="row featurette">
-    <div class="col-md-5">
-        <img src="https://i.pinimg.com/originals/90/ef/1d/90ef1d960eb7e317e77bc990c9c91a13.jpg" alt="">
-    </div>
 
-    <div class="col-md-6">
-        <h3>Fili & Kili</h3>
-        <p>Fíli and Kíli were nephews of Thorin, who was the elder brother of their mother, Dís. They were also
-            nephews of Frerin, grandsons of Thráin II, and great-grandsons of Thrór. Fíli's most distinguishing
-            feature was his long nose, the longest of any of the Dwarves in Thorin's company.
-        </p>
-    </div>
-</div>
+
+        <div class="row featurette">
+
+            {% if loop.index % 2 != 0 %} 
+            <!--If the loop.index is not devisable by 2 evenly, then display the div below to the page-->
+            <!--2 represents a modular. Modular 2 gets odd numbers from the array and displays them in about.html.-->
+
+                <div class="col-md-7">
+                    <h3><a href="/about/{{ member.url }}">{{ loop.index }}.{{ member.name }}</a></h3> <!--adds a link to each charaters name in about.html page. added key(url) and value of characters name array in compay.json file-->
+                    <p>{{ member.description }}</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+                </div>
+                <!--With the if statement and the modula 2 method, this puts odd numbers from the array (text <p>) to the left and images to the right-->
+
+            {% else %}
+
+            <div class="col-md-5">
+                <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+            </div>
+            <div class="col-md-7">
+                <h3><a href="/about/{{ member.url }}">{{ loop.index }}.{{ member.name }}</a></h3> <!--adds a link to each charaters name in about.html page. added key(url) and value of characters name array in compay.json file-->
+                <p>{{ member.description }}</p>
+            </div>
+            <!--with the else statement and the modula 2 method, this puts even numbers from the array (text <p>) to the right and images to the left-->
+                {% endif %}
+        </div>
+
+        {% if loop.index != loop.length %}
+
+            <hr class="featurette-divider">
+
+        {% endif %}
+        <!--This if statement is to remove the hr class featurettw-divider, but it does not work!-->
+
+    {% endfor %}
+
 {% endblock %}
