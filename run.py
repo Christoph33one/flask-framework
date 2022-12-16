@@ -1,9 +1,12 @@
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
+if os.path.exists("env.py"):
+    import env
 
 
 app = Flask(__name__)
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 # This is template rendering. This inherits code from the base template
@@ -23,6 +26,7 @@ def about():
     # python is opening the Json file using "r"
     # (read only) then assigning it the new varible
     # we created called json_data
+
 
 # route to give h1 titles in about.html and link and show a h1 text.
 @app.route("/about/<member_name>")
@@ -48,8 +52,13 @@ def about_memeber(member_name):
     # list of data that is loading.
 
 
-@app.route("/contact")
+@app.route("/contact",  methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        flash("Thanks {}, we have received your message!".format(
+            request.form.get("name")))
+        # this is a way of requesting the key, this is how we access
+        # a forms data from the back end!
     return render_template("contact.html", page_title="contact")
 
 
