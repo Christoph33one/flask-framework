@@ -66,7 +66,7 @@ def contact():
 def careers():
     return render_template("careers.html", page_title="careers")
 
-
+# the ip and its value / porth and its value. these are used when deploying in heruko. In the config vars section, you need to enter both ports and values to the get app running, important!!!
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
