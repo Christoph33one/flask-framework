@@ -59,14 +59,17 @@ def contact():
             request.form.get("name")))
         # this is a way of requesting the key, this is how we access
         # a forms data from the back end!
-    return render_template("contact.html", page_title="contact")
+    return render_template("contact.html", page_title="history")
 
 
-@app.route("/careers")
-def careers():
-    return render_template("careers.html", page_title="careers")
+@app.route("/history")
+def history():
+    return render_template("history.html", page_title="history")
 
-# the ip and its value / porth and its value. these are used when deploying in heruko. In the config vars section, you need to enter both ports and values to the get app running, important!!!
+
+# the ip and its value / porth and its value. these are used when deploying in
+# heruko. In the config vars section, you need to enter both ports and values
+# to the get app running, important!!!
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
