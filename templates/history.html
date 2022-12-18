@@ -2,19 +2,68 @@
 {% block content %}
 <h2>{{ page_title }}</h2>
 <!--Passing the varible (page_title) as an exspression with the data (history)from the base.html file-->
+<div class="row">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">History</h1>
+      <p>On April 26, 2941, Gandalf and the Dwarves arrived at Bag End. After a big tea and supper with Bilbo, they
+        explained themselves and their intentions. Bilbo was at first reluctant to join the group but Gandalf rushed him
+        out of the door.
+      </p>
 
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">History</h1>
-    <p>On April 26, 2941, Gandalf and the Dwarves arrived at Bag End. After a big tea and supper with Bilbo, they
-      explained themselves and their intentions. Bilbo was at first reluctant to join the group but Gandalf rushed him
-      out of the door.
-    </p>
-
-
-
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            After traveling for some time and crossing the river Hoarwell, the company were caught and nearly killed and
+            eaten by three hungry trolls. Gandalf returned in time to keep the monsters occupied until dawn when the
+            light
+            of the Sun turned them to stone. Recovering themselves, the Dwarves found that these Trolls had a cave
+            nearby
+            filled with stolen weapons, food, and a small treasure. Amongst the many weapons were Sting (which Bilbo
+            armed
+            himself with, and which he named after a battle with a giant spider), Orcrist (claimed by Thorin), and
+            Glamdring
+            (taken by Gandalf). Remarkably, all were ancient Elvish blades that had been forged several millennia
+            earlier,
+            in the First Age in Gondolin.
+          </p>
+        </div>
+      </div>
+      <p>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseWidthExample"
+          aria-expanded="false" aria-controls="collapseWidthExample">
+          Click here to read more history.
+        </button>
+      </p>
+      <div class="collapse width" id="collapseWidthExample">
+        <div class="card card-body">
+          <p>
+          Reaching Rivendell in June, the company held talks with Elrond and learned about the secret Moon-letters on
+          Thorins old map of the Lonely Mountain. Elrond also read the runes on Orcrist and Glamdring, thus identifying
+          them. After spending a short time there, the group resumed their journey over the Misty Mountains.
+          </p>
+          <p>
+          On their way through the High Pass, the company (minus Gandalf) were captured by Goblins. Taken before the
+          Great Goblin, they were in mortal danger. Gandalf suddenly appeared and killed the Great Goblin, creating
+          enough disarray for them to escape. Unfortunately, Bilbo fell down a hole and was left behind during their
+          hasty retreat. Wandering lost and alone in the depths of the mountain, he found the One Ring and met Gollum,
+          described in The Hobbit as "a small slimy creature … as dark as darkness, except for two big round pale eyes
+          in his thin face."
+          </p>
+          <p>
+          After a hazardous game of Riddles with the creature, Bilbo fortuitously discovered the Ring he had found could
+          make him invisible. Wearing the Ring, Bilbo escaped Gollum and a group of goblins guarding the eastern door
+          out of the caverns and soon reunited with his companions. Collecting themselves, the company made their way
+          down the mountainside, where they were attacked by Wargs and forced to seek refuge in the trees. Goblins soon
+          arrived and tried to kill the company by getting them down on the ground by tampering down the trees. With all
+          hope nearly gone, the hapless company was rescued by a group of giant Eagles.
+        </p>
+        </div>
+      </div>
+    </div>
   </div>
+
+</div>
 </div>
 
 

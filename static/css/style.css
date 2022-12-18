@@ -14,3 +14,12 @@
     font-style: italic;
     font-size: 15px;
 }
+/* ----------------------------------------------history page*/
+
+.card card-body {
+    min-height: 120px;
+    width: 320px;
+}
+.btn btn-primary {
+    border-radius: 8px;
+}
